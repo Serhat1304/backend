@@ -1,4 +1,3 @@
-// src/message/message.model.ts
 import { ObjectType, Field, ID } from '@nestjs/graphql';
 import { Utilisateur } from '../utilisateur/utilisateur.model';
 import { Conversation } from '../conversation/conversation.model';
