@@ -2,10 +2,9 @@ import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { HealthModule } from './health/health.module'
-import { HealthResolver } from './health/health.resolver'; 
+import { UtilisateurModule } from './model/utilisateur/utilisateur.module';
+import { ConversationModule } from './model/conversation/conversation.module';
+import { MessageModule } from './model/message/message.module';
 
 @Module({
   imports: [
@@ -13,9 +12,9 @@ import { HealthResolver } from './health/health.resolver';
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
     }),
-    HealthModule,
+    UtilisateurModule,
+    ConversationModule,
+    MessageModule,
   ],
-  controllers: [AppController],
-  providers: [AppService, HealthResolver],
 })
 export class AppModule {}
